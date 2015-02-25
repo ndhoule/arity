@@ -1,0 +1,17 @@
+{
+  "name": "arity",
+  "repo": "ndhoule/arity",
+  "version": "1.0.0",
+  "description": "Wrap a function in a function that expects a given number of arguments.",
+  "keywords": [
+    "functional",
+    "arity"
+  ],
+  "license": "MIT",
+  "scripts": ["index.js"],
+  "dependencies": {},
+  "development": {
+    "mochajs/mocha": "^2.1.0",
+    "chaijs/deep-eql": "^0.1.3"
+  }
+}

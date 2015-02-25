@@ -1,0 +1,26 @@
+{
+  "name": "arity",
+  "version": "1.0.0",
+  "description": "Wrap a function in a function that expects a given number of arguments.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ndhoule/arity.git"
+  },
+  "keywords": [
+    "component",
+    "functional",
+    "arity"
+  ],
+  "author": "Nathan Houle <nathan@nathanhoule.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndhoule/arity/issues"
+  },
+  "homepage": "https://github.com/ndhoule/arity",
+  "dependencies": {},
+  "devDependencies": {
+    "deep-eql": "^0.1.3",
+    "mocha": "^2.1.0"
+  }
+}
