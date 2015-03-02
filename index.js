@@ -4,7 +4,7 @@
  * Object.prototype.toString reference.
  */
 
-var toString = Object.prototype.toString;
+var objToString = Object.prototype.toString;
 
 /**
  * Determine if a value is a function.
@@ -28,7 +28,7 @@ var isFunction = function(val) {
 // TODO: Move to lib
 var isNumber = function(val) {
   var type = typeof val;
-  return type === 'number' || (type === 'object' && toString.call(val) === '[object Number]');
+  return type === 'number' || (type === 'object' && objToString.call(val) === '[object Number]');
 };
 
  /**
@@ -68,14 +68,14 @@ var createParams = function createParams(n) {
 var createArityWrapper = function createArityWrapper(n) {
   var paramNames = createParams(n).join(', ');
   var wrapperBody = ''.concat(
-    '  return function(', paramNames , ') {\n',
+    '  return function(', paramNames, ') {\n',
     '    return func.apply(this, arguments);\n',
     '  };'
   );
 
-  /* jshint -W054 */
+  /* eslint-disable no-new-func */
   return new Function('func', wrapperBody);
-  /* jshint +W054 */
+  /* eslint-enable no-new-func */
 };
 
  /**
@@ -83,7 +83,7 @@ var createArityWrapper = function createArityWrapper(n) {
   */
 
 var arityWrapperCache = [
-  /* jshint -W098 */
+  /* eslint-disable no-unused-vars */
   function(fn) {
     return function() {
       return fn.apply(this, arguments);
@@ -119,7 +119,7 @@ var arityWrapperCache = [
       return fn.apply(this, arguments);
     };
   }
-  /* jshint +W098 */
+  /* eslint-enable no-unused-vars */
 ];
 
 /**
@@ -149,7 +149,7 @@ var arityWrapperCache = [
 
 var arity = function arity(n, func) {
   if (!isFunction(func)) {
-    throw TypeError('Expected a function but got ' + typeof func);
+    throw new TypeError('Expected a function but got ' + typeof func);
   }
 
   n = Math.max(isNumber(n) ? n : 0, 0);
