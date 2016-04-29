@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * Object.prototype.toString reference.
- */
-
 var objToString = Object.prototype.toString;
 
 /**
@@ -12,7 +8,6 @@ var objToString = Object.prototype.toString;
  * @param {*} val
  * @return {boolean}
  */
-
 // TODO: Move to lib
 var isFunction = function(val) {
   return typeof val === 'function';
@@ -24,7 +19,6 @@ var isFunction = function(val) {
  * @param {*} val
  * @return {boolean}
  */
-
 // TODO: Move to lib
 var isNumber = function(val) {
   var type = typeof val;
@@ -42,7 +36,6 @@ var isNumber = function(val) {
   * argNames(2);
   * //=> ['arg1', 'arg2']
   */
-
 var createParams = function createParams(n) {
   var args = [];
 
@@ -64,7 +57,6 @@ var createParams = function createParams(n) {
   * @param {number} n
   * @return {Function(Function)}
   */
-
 var createArityWrapper = function createArityWrapper(n) {
   var paramNames = createParams(n).join(', ');
   var wrapperBody = ''.concat(
@@ -78,10 +70,7 @@ var createArityWrapper = function createArityWrapper(n) {
   /* eslint-enable no-new-func */
 };
 
- /**
-  * Cache common arity wrappers to avoid constructing them at runtime.
-  */
-
+// Cache common arity wrappers to avoid constructing them at runtime
 var arityWrapperCache = [
   /* eslint-disable no-unused-vars */
   function(fn) {
@@ -146,7 +135,6 @@ var arityWrapperCache = [
  * unaryAdd.length;
  * //=> 1
  */
-
 var arity = function arity(n, func) {
   if (!isFunction(func)) {
     throw new TypeError('Expected a function but got ' + typeof func);
@@ -161,7 +149,7 @@ var arity = function arity(n, func) {
   return arityWrapperCache[n](func);
 };
 
-/**
+/*
  * Exports.
  */
 
