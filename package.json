@@ -1,6 +1,6 @@
 {
   "name": "@ndhoule/arity",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Wrap a function in a function that expects a given number of arguments.",
   "main": "index.js",
   "repository": {
